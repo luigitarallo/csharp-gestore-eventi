@@ -40,10 +40,17 @@ namespace csharp_gestore_eventi
 
         public Evento(string titolo, DateTime data, int capienzaMax) 
         {
-            this._titolo = titolo;
-            this._data = data;
+            if (string.IsNullOrWhiteSpace(titolo))
+                throw new ArgumentException("Il titolo dell'evento non può essere vuoto");
+            
+            if (data < DateTime.Now)
+                throw new InvalidOperationException("Impossibile aggiungere l'evento, la data è passata");
+            
             if (capienzaMax <= 0)
                 throw new ArgumentException("La capienza massima deve essere un numero positivo");
+            
+            this._titolo = titolo;
+            this._data = data;
             this._capienzaMax = capienzaMax;
             this._postiPrenotati = 0;
         }
@@ -71,7 +78,7 @@ namespace csharp_gestore_eventi
 
         public override string ToString()
         {
-            return $"{Data.ToString("dd/MM/yyyy")} - {Titolo}";
+            return $"{Data.ToString("     dd/MM/yyyy")} - {Titolo}";
         }
     }
 

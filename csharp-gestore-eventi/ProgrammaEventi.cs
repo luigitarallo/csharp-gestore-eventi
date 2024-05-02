@@ -9,12 +9,14 @@ namespace csharp_gestore_eventi
     public class ProgrammaEventi
     {
         private string _titolo;
-        private List<Evento> eventi;
+        public List<Evento> eventi;
 
         public string Titolo
         { get { return _titolo; }
         private set { _titolo = value; }
         }
+
+
 
         public ProgrammaEventi(string titolo)
         {
@@ -62,7 +64,7 @@ namespace csharp_gestore_eventi
 
         public override string ToString()
         {
-            string output = $"Nome programma evento: {Titolo}\n";
+            string output = $"Programma evento: {Titolo}\n";
             foreach(Evento evento in eventi)
             {
                 output += evento.ToString() + "\n";
