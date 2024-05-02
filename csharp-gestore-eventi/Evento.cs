@@ -78,7 +78,7 @@ namespace csharp_gestore_eventi
 
         public override string ToString()
         {
-            return $"{Data.ToString("     dd/MM/yyyy")} - {Titolo}";
+            return $"       {Data.ToString("dd/MM/yyyy")} - {Titolo}";
         }
     }
 

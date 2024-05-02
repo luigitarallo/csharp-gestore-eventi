@@ -12,11 +12,10 @@ namespace csharp_gestore_eventi
         public List<Evento> eventi;
 
         public string Titolo
-        { get { return _titolo; }
-        private set { _titolo = value; }
+        { 
+            get { return _titolo; }
+            set { _titolo = value; }
         }
-
-
 
         public ProgrammaEventi(string titolo)
         {
